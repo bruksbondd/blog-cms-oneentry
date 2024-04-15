@@ -1,11 +1,10 @@
-// import Hero from "@/shared/modules/home";
+import Hero from "@/shared/modules/hero";
 // import Articles from "@/shared/modules/articles/articles";
 
 const Page = () => {
   return (
     <div>
-        Page
-      {/* <Hero /> */}
+      <Hero />
       {/* <Articles /> */}
     </div>
   );

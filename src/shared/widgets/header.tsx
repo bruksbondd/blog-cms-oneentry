@@ -1,9 +1,10 @@
-
+import { getPages } from "@/actions/getPages";
+import { logo } from "@/app/configs/constants";
 import { Button, Navbar } from "@nextui-org/react";
 import Link from "next/link";
 
 const Header = async () => {
-  //const res = await getPages();
+  const res = await getPages();
 
   return (
     <Navbar
@@ -14,12 +15,20 @@ const Header = async () => {
       <div className="w-[90%] m-auto flex items-center justify-between">
         <Link href={"/"} className="flex items-end">
           <h5 className="text-3xl text-[#001858] font-Poppins font-medium">
-           Logo
+            {logo}
           </h5>
           <span className="text-blue-800 font-[500] font-Poppins">.Blog</span>
         </Link>
         <div className="md:block hidden">
-         Link
+          {res?.data?.map((i: PageType, index: number) => (
+            <Link
+              href={`/${i.pageUrl === "home" ? "/" : i.pageUrl}`}
+              key={index}
+              className="text-xl px-8"
+            >
+              {i.localizeInfos.en_US.title}
+            </Link>
+          ))}
           <Button
             className="rounded px-4 text-lg relative bg-[#6246ea] text-white"
             as={Link}

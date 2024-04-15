@@ -4,7 +4,8 @@ import "./globals.css";
 import * as React from "react";
 import { Provider } from "./provider";
 import Header from "@/shared/widgets/header";
-// import Footer from "@/shared/widgets/footer/footer";
+import Footer from "@/shared/widgets/footer";
+
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -27,7 +28,7 @@ export default function RootLayout({
        <Provider>
           <Header />
           {children}
-          {/* <Footer /> */}
+          <Footer />
           </Provider> 
       </body>
     </html>
